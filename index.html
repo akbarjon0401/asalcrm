@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Панель управления пчеловодческим бизнесом</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/96/bee.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container" id="app">
+    <img class="bee-anim bee1" src="https://img.icons8.com/fluency/96/bee.png" alt="Анимация пчелы"/>
+    <img class="bee-anim bee2" src="https://img.icons8.com/fluency/96/bee.png" alt="Анимация пчелы"/>
+    <img class="bee-anim bee3" src="https://img.icons8.com/fluency/96/bee.png" alt="Анимация пчелы"/>
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <img src="https://img.icons8.com/fluency/96/bee.png" alt="Логотип пчелы">
+        <span>ASALI RAUF</span>
+      </div>
+      <div class="header-controls">
+        <select id="languageSwitch">
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+        </select>
+        <button id="themeToggle"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+
+    <!-- Authentication/Login Section -->
+    <div id="loginSection" class="login-section">
+      <h2>Вход</h2>
+      <input type="text" id="loginUsername" placeholder="Имя пользователя" autocomplete="username">
+      <input type="password" id="loginPassword" placeholder="Пароль" autocomplete="current-password">
+      <button onclick="login()">Войти <i class="fas fa-sign-in-alt"></i></button>
+      <div class="error-msg" id="loginError"></div>
+    </div>
+
+    <!-- Main Dashboard Section -->
+    <div id="dashboardSection" style="display:none;">
+      <div class="nav" id="navBar">
+        <button id="dashboardBtn" class="active" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Панель</button>
+        <button id="salesBtn" onclick="showSection('sales')"><i class="fas fa-money-bill-wave"></i> Продажи и расходы</button>
+        <button id="customersBtn" onclick="showSection('customers')"><i class="fas fa-users"></i> Клиенты</button>
+        <button id="tasksBtn" onclick="showSection('tasks')"><i class="fas fa-tasks"></i> Задачи</button>
+        <button id="analyticsBtn" onclick="showSection('analytics')"><i class="fas fa-chart-line"></i> Аналитика</button>
+        <button id="installmentsBtn" onclick="showSection('installments')"><i class="fas fa-credit-card"></i> Рассрочка</button>
+        <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Выйти</button>
+      </div>
+
+      <div id="dashboard" class="dashboard-cards"></div>
+      <div id="sectionContents"></div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
